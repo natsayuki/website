@@ -1,0 +1,91 @@
+#navBar{
+  width: 98%;
+  margin: 1%;
+  background-color: aqua;
+  height: 15vh;
+}
+body{
+  background: url('images/full.gif');
+  background-size: 100%;
+}
+#contentWrapper{
+  position: fixed;
+  left: 0px;
+  top:0px;
+  width: 105%;
+  height: 100vh;
+  clip-path: inset(19vh 0px 0px 0px);
+  overflow: auto;
+}
+body{
+  overflow: hidden;
+}
+#subTest{
+  width: 100%;
+  height: 500rem;
+}
+#dummy{
+  height: 19vh;
+  width: 100vh;
+}
+#scroller{
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+#filler{
+  width: 100%;
+}
+.article{
+  position: relative;
+  width: 60%;
+  margin-left: 20%;
+  height: 30vh;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.headline{
+  width: 100%;
+  height: 30vh;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+*{
+  font-family: 'Comic Sans MS';
+}
+.body{
+  margin-top: 30vh;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 10rem;
+  padding-bottom: 2rem;
+}
+img, h1, h2, h3, p{
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+a:hover{
+  color: rgb(154, 188, 0);
+}
+.share{
+  background-image: url('images/share.png');
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  background-size: 100%;
+}
+.link{
+  /* visibility: hidden; */
+  position: fixed;
+  left: -40rem;
+}
