@@ -2,6 +2,7 @@ $(document).ready(function(){
   const navBar = $('#navBar');
   const contentWrapper = $('#contentWrapper');
   const contentContainer = $('#contentContainer');
+  const projectsWrapper = $('#projectsWrapper');
   const scroller = $('#scroller');
   const filler = $('#filler');
   const share = $('.share');
@@ -9,6 +10,7 @@ $(document).ready(function(){
 
   let idleTime = 0;
   let lastHeight = contentContainer.css('height');
+  let selected = 'optionFeed';
 
   class Article {
     constructor(theme, headline, body){
@@ -74,8 +76,14 @@ $(document).ready(function(){
   function coverBack(){
     navBar.stop();
     navBar.css({'opacity': '1'});
-    contentWrapper.stop();
-    contentWrapper.css({'opacity': '1'});
+    if(selected == 'optionFeed'){
+      contentWrapper.stop();
+      contentWrapper.css({'opacity': '1'});
+    }
+    if(selected == 'optionProjects'){
+      projectsWrapper.stop();
+      projectsWrapper.css({'opacity': '1'});
+    }
     scroller.stop()
     scroller.css({'opacity': '1'});
     idleTime = 0
@@ -96,16 +104,18 @@ $(document).ready(function(){
     let width = parseInt(option.width()) + (parseInt(option.css('margin-left').replace('px', '')) );
     slider.animate({'left': offset, 'width': width}, 500);
   }
-  select($('#optionFeed'));
+
 
   idle();
   checkHeight();
 
   $(document).mousemove(function(){
-    coverBack();
+    if(idleTime > 9) coverBack();
+    idleTime = 0;
   });
   contentWrapper.scroll(function(){
-    coverBack();
+    if(idleTime > 9) coverBack();
+    idleTime = 0;
   });
   filler.css({'height': contentContainer.css('height')});
   scroller.scroll(function () {
@@ -151,5 +161,17 @@ $(document).ready(function(){
   }
   $('.option').click(function(){
     select($(this));
-  })
+    selected = $(this).attr('id');
+    $('.page').stop();
+    $('.page').animate({'opacity': '0'}, 500);
+    if(selected == 'optionFeed'){
+      contentWrapper.stop();
+      contentWrapper.animate({'opacity': '1'}, 500);
+    }
+    else if(selected == 'optionProjects'){
+      projectsWrapper.stop();
+      projectsWrapper.animate({'opacity': '1'}, 500);
+    }
+  });
+  $('#optionFeed').click();
 });
