@@ -1,4 +1,5 @@
 #navBar{
+  position: relative;
   width: 98%;
   margin: 1%;
   background-color: aqua;
@@ -85,7 +86,34 @@ a:hover{
   background-size: 100%;
 }
 .link{
-  /* visibility: hidden; */
   position: fixed;
   left: -40rem;
+}
+#navBarWrapper{
+  display: flex;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+}
+.option{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+  margin-left: 3rem;
+  cursor: pointer;
+}
+#slider{
+  z-index: 0;
+  top: 0px;
+  position: absolute;
+  left: 0px;
+  height: 15vh;
+  background-color: grey;
+  width: 5rem;
+}
+.option > h1{
+  user-select: none;
+  -moz-user-select: none;
 }

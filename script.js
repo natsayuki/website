@@ -5,6 +5,7 @@ $(document).ready(function(){
   const scroller = $('#scroller');
   const filler = $('#filler');
   const share = $('.share');
+  const slider = $('#slider');
 
   let idleTime = 0;
   let lastHeight = contentContainer.css('height');
@@ -89,6 +90,14 @@ $(document).ready(function(){
   function highlight(article){
     article.css({"border-radius": '1rem', 'box-shadow': '3rem 3rem 3rem rgb(' + article.attr('theme') + ')'});
   }
+  function select(option){
+    slider.stop();
+    let offset = parseInt(option.offset().left) - parseInt(option.css('margin-left').replace('px', ''));
+    let width = parseInt(option.width()) + (parseInt(option.css('margin-left').replace('px', '')) );
+    slider.animate({'left': offset, 'width': width}, 500);
+  }
+  select($('#optionFeed'));
+
   idle();
   checkHeight();
 
@@ -140,4 +149,7 @@ $(document).ready(function(){
     contentWrapper.scrollTop(article.offset().top);
     highlight(article);
   }
+  $('.option').click(function(){
+    select($(this));
+  })
 });
