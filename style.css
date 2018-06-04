@@ -117,3 +117,28 @@ a:hover{
   user-select: none;
   -moz-user-select: none;
 }
+#projectsWrapper{
+  opacity: 0;
+  position: fixed;
+  left: 0px;
+  top:0px;
+  width: 105%;
+  height: 100vh;
+  clip-path: inset(19vh 0px 0px 0px);
+  overflow: auto;
+  display: none;
+}
+.project{
+  width: 25%;
+  margin-left: 8.33333%;
+  overflow: hidden;
+  height: 15vh;
+  background-color: rgba(255, 255, 255, .51);
+}
+.title{
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

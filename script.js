@@ -3,6 +3,7 @@ $(document).ready(function(){
   const contentWrapper = $('#contentWrapper');
   const contentContainer = $('#contentContainer');
   const projectsWrapper = $('#projectsWrapper');
+  const projectsContainer = $('#projectsContainer');
   const scroller = $('#scroller');
   const filler = $('#filler');
   const share = $('.share');
@@ -56,6 +57,11 @@ $(document).ready(function(){
   contentContainer.append(article1.build());
   contentContainer.append(article0.build());
 
+  project0 = new Article('255, 255, 255', 'Test Project 0', `
+    <h1>test project 0</h1>
+  `);
+  projectsContainer.append(project0.build());
+
 
   function idle(){
     idleTime++;
@@ -71,6 +77,7 @@ $(document).ready(function(){
   function showBack(){
     navBar.animate({'opacity': '0'}, 500);
     contentWrapper.animate({'opacity': '0'}, 500);
+    projectsWrapper.animate({'opacity': '0'}, 500);
     scroller.animate({'opacity': '0'}, 500);
   }
   function coverBack(){
@@ -119,13 +126,28 @@ $(document).ready(function(){
   });
   filler.css({'height': contentContainer.css('height')});
   scroller.scroll(function () {
-    contentWrapper.scrollTop($(this).scrollTop());
+    if(selected == 'optionFeed') contentWrapper.scrollTop($(this).scrollTop());
+    else if(selected == 'optionProjects') projectsWrapper.scrollTop($(this).scrollTop());
   });
-  num = 0
+  num = 0;
   contentContainer.children('.article').each(function(){
     $(this).attr('num', num.toString());
+    $(this).attr('parent', 'optionFeed');
     let theme = $(this).attr('theme');
-    let link = location.protocol + '//' + location.host + location.pathname + '?a=' + $(this).attr('num');
+    let link = location.protocol + '//' + location.host + location.pathname + '?a=' + $(this).attr('num') + '&p=optionFeed';
+    $(this).css({'background-color': 'rgba(' + theme + ", .5)"});
+    $(this).find('.headline').prepend(`
+      <div class="share"></div>
+      <textarea class="link">` + link + `</textarea>
+    `);
+    num++;
+  });
+  num = 0;
+  projectsContainer.children('.article').each(function(){
+    $(this).attr('num', num.toString());
+    $(this).attr('parent', 'optionProjects');
+    let theme = $(this).attr('theme');
+    let link = location.protocol + '//' + location.host + location.pathname + '?a=' + $(this).attr('num') + '&p=optionProjects';
     $(this).css({'background-color': 'rgba(' + theme + ", .5)"});
     $(this).find('.headline').prepend(`
       <div class="share"></div>
@@ -153,25 +175,37 @@ $(document).ready(function(){
       $(this).attr('read', 'false');
     }
   });
-  params = new URLSearchParams(window.location.search);
-  if(params.has('a')){
-    let article = contentContainer.find("div[num='" + params.get('a') + "']");
-    contentWrapper.scrollTop(article.offset().top);
-    highlight(article);
-  }
   $('.option').click(function(){
     select($(this));
     selected = $(this).attr('id');
     $('.page').stop();
-    $('.page').animate({'opacity': '0'}, 500);
+    $('.page').animate({'opacity': '0'}, {duration: 500, complete: function(){$('.page').css({'display': 'none'})}});
     if(selected == 'optionFeed'){
       contentWrapper.stop();
-      contentWrapper.animate({'opacity': '1'}, 500);
+      contentWrapper.css({'display': 'block'})
+      contentWrapper.animate({'opacity': '1'}, {duration: 500, complete: function(){contentWrapper.css({'display': 'block'})}});
+      document.title = "42turtle.com: FEED";
     }
     else if(selected == 'optionProjects'){
       projectsWrapper.stop();
-      projectsWrapper.animate({'opacity': '1'}, 500);
+      projectsWrapper.css({'display': 'block'})
+      projectsWrapper.animate({'opacity': '1'}, {duration: 500, complete: function(){projectsWrapper.css({'display': 'block'})}});
+      document.title = "42turtle.com: PROJECTS";
     }
   });
   $('#optionFeed').click();
+  params = new URLSearchParams(window.location.search);
+  if(params.has('a') && params.has('p')){
+    $('#' + params.get('p')).click();
+    console.log("div[num='" + params.get('a') + "'][parent='" + params.get('p') + "']");
+    let article;
+    if(params.get('p') == 'optionFeed'){
+      article = contentContainer.find("div[num='" + params.get('a') + "']");
+    }
+    else if(params.get('p') == 'optionProjects'){
+      article = projectsContainer.find("div[num='" + params.get('a') + "']");
+    }
+    contentWrapper.scrollTop(article.offset().top);
+    highlight(article);
+  }
 });
