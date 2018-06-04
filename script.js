@@ -35,7 +35,24 @@ $(document).ready(function(){
     Click the little share button to copy an article link to your clipboard.
     That's pretty cool I guess.</h1>
   `);
+  article1 = new Article('66, 134, 244', 'New Gorillaz Album', `
+  <h1>
+  A few days ago, the Gorillaz announced their new album The Now Now.  Since the announcement,
+  Two songs for the upcoming project have been released.  <a href="https://www.youtube.com/watch?v=E5yFcdPAGv0">Humility</a>
+  and <a href="https://www.youtube.com/watch?v=68JpPpSc7bs">Lake Zurich</a>.  Two other songs, Hollywood and Idaho, were played
+  during the Humanz tour as a part of the not named yet Gorillaz project in progress.
+  <br />
+  For now, Murdoc is still on prison for unknown reasons so of course the band needed a stand in bassist.  Who else would join them
+  but Ace from the Power Puff Girls.
+  </h1>
+  <img src="https://www.okchicas.com/wp-content/uploads/2018/06/Ace-Gorillaz-730x372.jpg" />
+  <h1>
+  Believe it or not, a Power Puff Girls character is the stand in bassist for Murdoc.
+  </h1>
+  `);
+  contentContainer.append(article1.build());
   contentContainer.append(article0.build());
+
 
   function idle(){
     idleTime++;
