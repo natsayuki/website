@@ -39,7 +39,8 @@ $(document).ready(function(){
   Click the little share button to copy an article link to your clipboard.
   That's pretty cool I guess.</h1>
   `);
-  article1 = new Article('66, 134, 244', 'New Gorillaz Album', `
+  article1 = new Article('165,1,52', 'New Gorillaz Album', `
+  <img src="https://i.ytimg.com/vi/SHJxEnRxVS8/maxresdefault.jpg" />
   <h1>
   A few days ago, Gorillaz announced their new album The Now Now.  Since the announcement,
   two songs for the upcoming project have been released.  <a href="https://www.youtube.com/watch?v=E5yFcdPAGv0">Humility</a>
