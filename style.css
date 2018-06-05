@@ -142,3 +142,11 @@ a:hover{
   align-items: center;
   justify-content: center;
 }
+::-moz-selection{
+  background-color: grey;
+  color: white;
+}
+::selection {
+  background-color: grey;
+  color: white;
+}

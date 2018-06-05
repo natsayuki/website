@@ -64,16 +64,36 @@ $(document).ready(function(){
   contentContainer.append(article1.build());
   contentContainer.append(article0.build());
 
-  project0 = new Article('0, 242, 255', 'Rain', `
-    <h1>
-    Rain is a... uh... shape generator?  Click anywhere on the screen to add drops to the randomly generated
-    rain fall.  Change the settings to mix it up a bit with different shapes, colors, and even dimensions.
-    Rain has also gone X-platform.  Search RainX (not to be confused with the wiper fluid) on the iOS app store
-    to download Rain on your mobile device.  Rain can be played at <a href="http://rain.42turtle.com">rain.42turtle.com</a>
-    or on an iOS device.  Source code for Rain can be found <a href="https://github.com/the42ndturtle/rain">here</a> and
-    source code for RainX can be found <a href="https://github.com/the42ndturtle/rainX">here</a>.
-    </h1>
+  project0 = new Article('144, 150, 150', 'PatkerChat', `
+  <h1>
+  PatkerChat is an instant messaging service where people can talk together in a chat room.
+  PatkerChat's main draw is the extensive list of emotes that can be called upon to send to others.
+  Emotes can be sent by typing the emote in or double clicking on an emote you want to send either
+  from the emote list or from a message someone else has sent.  Emotes can be modified with one
+  color tag and one animation tag to mix and match all different types of combinations.  All emotes and tag
+  commands can be easily accesed by user by simply hovering their mouse over an emote they wish to view
+  the command for.  Anonymity is the default in PatkerChat with each person in the chat room being assigned
+  a username consisting of random numbers, however there is always the option to create an account and log in
+  allowing users to be identified by custom call signs.  PatkerChat supports two user based commands, whispering and
+  at-ing.  A user who is whispered to will receive a grey message in their box stating who the sender is and what they are
+  saying.  At-ed users will receive all messages at-ed at them in yellow text so they will be sure not to miss it.  PatkerChat
+  can be used at <a href="42turtle.com/patkerchat">42turtle.com/patkerchat</a> if the server is ever up.  Because it uses
+  Node.js and because I have been to lazy to make it start on boot, patkerchat will only be available if I ever remember to
+  maintain the server, which for a service no one uses, I haven't been bothering to do.  However, source code for PatkerChat
+  can be viewed <a href="https://github.com/the42ndturtle/PatkerChat">here</a>.
+  </h1>
   `);
+  project1 = new Article('0, 242, 255', 'Rain', `
+  <h1>
+  Rain is a... uh... shape generator?  Click anywhere on the screen to add drops to the randomly generated
+  rain fall.  Change the settings to mix it up a bit with different shapes, colors, and even dimensions.
+  Rain has also gone X-platform.  Search RainX (not to be confused with the wiper fluid) on the iOS app store
+  to download Rain on your mobile device.  Rain can be played at <a href="http://rain.42turtle.com">rain.42turtle.com</a>
+  or on an iOS device.  Source code for Rain can be found <a href="https://github.com/the42ndturtle/rain">here</a> and
+  source code for RainX can be found <a href="https://github.com/the42ndturtle/rainX">here</a>.
+  </h1>
+  `);
+  projectsContainer.append(project1.build());
   projectsContainer.append(project0.build());
 
 
@@ -82,6 +102,9 @@ $(document).ready(function(){
     if(idleTime > 9 && !navBar.hasClass('hideForBack')){
       let temp = true
       contentContainer.children('.article').each(function(){
+        if($(this).attr('read') == 'true') temp = false
+      });
+      projectsContainer.children('.article').each(function(){
         if($(this).attr('read') == 'true') temp = false
       });
       if(temp) showBack();
@@ -110,9 +133,13 @@ $(document).ready(function(){
     idleTime = 0
   }
   function checkHeight(){
-    if(contentContainer.css('height') != lastHeight){
+    if(contentContainer.css('height') != lastHeight && selected == 'optionFeed'){
       lastHeight = contentContainer.css('height');
       filler.css({'height': contentContainer.css('height')});
+    }
+    else if(projectsContainer.css('height') != lastHeight && selected == 'optionProjects'){
+      lastHeight = projectsContainer.css('height');
+      filler.css({'height': projectsContainer.css('height')});
     }
     setTimeout(checkHeight, 50);
   }
@@ -173,20 +200,21 @@ $(document).ready(function(){
     $(this).parent().find('.link').select();
     document.execCommand('copy');
   });
-  $(document).on('click', '.article', function(){
-    $(this).stop()
-    if($(this).attr('read') == 'false'){
-      bodyHeight = $(this).find('.body').css('height');
+  $(document).on('click', '.headline', function(){
+    parent = $(this).parent()
+    $(parent).stop()
+    if($(parent).attr('read') == 'false'){
+      bodyHeight = $(parent).find('.body').css('height');
       bodyHeight = parseInt(bodyHeight.replace('px', ''));
-      headlineHeight = $(this).find('.headline').css('height');
+      headlineHeight = $(parent).find('.headline').css('height');
       headlineHeight = parseInt(headlineHeight.replace('px', ''));
       fullHeight = headlineHeight + bodyHeight + (headlineHeight/5)
-      $(this).animate({'height': fullHeight});
-      $(this).attr('read', 'true');
+      $(parent).animate({'height': fullHeight});
+      $(parent).attr('read', 'true');
     }
     else{
-      $(this).animate({'height': $(this).find('.headline').css('height')});
-      $(this).attr('read', 'false');
+      $(parent).animate({'height': $(parent).find('.headline').css('height')});
+      $(parent).attr('read', 'false');
     }
   });
   $('.option').click(function(){
