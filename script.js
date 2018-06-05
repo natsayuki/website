@@ -51,7 +51,7 @@ $(document).ready(function(){
   For now, Murdoc is still on prison for unknown reasons so of course the band needed a stand in bassist.  Who else would join them
   but Ace from the Power Puff Girls.
   </h1>
-  <img src="https://www.okchicas.com/wp-content/uploads/2018/06/Ace-Gorillaz-730x372.jpg" />
+  <img src="https://www.okchicas.com/wp-content/uploads/2018/06/Ace-Gorillaz-730x372.jpg" width="800" />
   <h1>
   Believe it or not, a Power Puff Girls character is the stand in bassist for Murdoc.
   </h1>
@@ -62,6 +62,16 @@ $(document).ready(function(){
   <img src="images/glossyTurtleBlue.JPG" width="700" />
   <h1>It even looks glossy in the dark.</h1>
   `);
+  article3 = new Article('121, 122, 124', 'Microsoft Buys GitHub', `
+  <img src="https://cdn.vox-cdn.com/thumbor/AyBIl2GQKi08EKWATgHM0Jo1qoA=/0x0:1980x1320/920x613/filters:focal(832x502:1148x818)/cdn.vox-cdn.com/uploads/chorus_image/image/59943837/microsoftgithublove.0.jpg" width="800" />
+  <h1>
+  That's right, the tech giant Microsoft has purchased the repo hosting site GitHub for a whopping $7.5 billion.
+  After Microsoft claimed to be the most active company on the popular platform with other 2 million commits,
+  it seems almost fitting they are now the owners.  Hopefully they don't screw it up somehow.
+  </h1>
+  `);
+
+  contentContainer.append(article3.build());
   contentContainer.append(article2.build());
   contentContainer.append(article1.build());
   contentContainer.append(article0.build());
