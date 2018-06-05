@@ -64,8 +64,15 @@ $(document).ready(function(){
   contentContainer.append(article1.build());
   contentContainer.append(article0.build());
 
-  project0 = new Article('255, 255, 255', 'Test Project 0', `
-    <h1>test project 0</h1>
+  project0 = new Article('0, 242, 255', 'Rain', `
+    <h1>
+    Rain is a... uh... shape generator?  Click anywhere on the screen to add drops to the randomly generated
+    rain fall.  Change the settings to mix it up a bit with different shapes, colors, and even dimensions.
+    Rain has also gone X-platform.  Search RainX (not to be confused with the wiper fluid) on the iOS app store
+    to download Rain on your mobile device.  Rain can be played at <a href="http://rain.42turtle.com">rain.42turtle.com</a>
+    or on an iOS device.  Source code for Rain can be found <a href="https://github.com/the42ndturtle/rain">here</a> and
+    source code for RainX can be found <a href="https://github.com/the42ndturtle/rainX">here</a>.
+    </h1>
   `);
   projectsContainer.append(project0.build());
 
