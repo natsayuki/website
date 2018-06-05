@@ -42,7 +42,7 @@ $(document).ready(function(){
   article1 = new Article('66, 134, 244', 'New Gorillaz Album', `
   <h1>
   A few days ago, Gorillaz announced their new album The Now Now.  Since the announcement,
-  Two songs for the upcoming project have been released.  <a href="https://www.youtube.com/watch?v=E5yFcdPAGv0">Humility</a>
+  two songs for the upcoming project have been released.  <a href="https://www.youtube.com/watch?v=E5yFcdPAGv0">Humility</a>
   and <a href="https://www.youtube.com/watch?v=68JpPpSc7bs">Lake Zurich</a>.  Two other songs, Hollywood and Idaho, were played
   during the Humanz tour as a part of the not named yet Gorillaz project in progress.
   <br />
