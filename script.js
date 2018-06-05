@@ -66,7 +66,7 @@ $(document).ready(function(){
   <img src="https://cdn.vox-cdn.com/thumbor/AyBIl2GQKi08EKWATgHM0Jo1qoA=/0x0:1980x1320/920x613/filters:focal(832x502:1148x818)/cdn.vox-cdn.com/uploads/chorus_image/image/59943837/microsoftgithublove.0.jpg" width="800" />
   <h1>
   That's right, the tech giant Microsoft has purchased the repo hosting site GitHub for a whopping $7.5 billion.
-  After Microsoft claimed to be the most active company on the popular platform with other 2 million commits,
+  After Microsoft claimed to be the most active company on the popular platform with over 2 million commits,
   it seems almost fitting they are now the owners.  Hopefully they don't screw it up somehow.
   </h1>
   `);
