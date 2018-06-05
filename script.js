@@ -56,8 +56,8 @@ $(document).ready(function(){
   `);
   article2 = new Article('0, 38, 255', 'A Rather Glossy Turtle', `
   <h1>I put some XTC-3D on the glow in the dark turtle I designed and printed and now it look really cool.</h1>
-  <img src="images/glossyTurtle.jpg" width="700" />
-  <img src="images/glossyTurtleBlue.jpg" width="700" />
+  <img src="images/glossyTurtle.JPG" width="700" />
+  <img src="images/glossyTurtleBlue.JPG" width="700" />
   <h1>It even looks glossy in the dark.</h1>
   `);
   contentContainer.append(article2.build());
