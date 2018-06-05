@@ -35,9 +35,9 @@ $(document).ready(function(){
     }
   }
   article0 = new Article('255, 255, 255', 'Welcome to 42turtle.com', `
-    <h1>New articles will be here I guess.  Updates will be announced here.
-    Click the little share button to copy an article link to your clipboard.
-    That's pretty cool I guess.</h1>
+  <h1>New articles will be here I guess.  Updates will be announced here.
+  Click the little share button to copy an article link to your clipboard.
+  That's pretty cool I guess.</h1>
   `);
   article1 = new Article('66, 134, 244', 'New Gorillaz Album', `
   <h1>
@@ -54,6 +54,13 @@ $(document).ready(function(){
   Believe it or not, a Power Puff Girls character is the stand in bassist for Murdoc.
   </h1>
   `);
+  article2 = new Article('0, 38, 255', 'A Rather Glossy Turtle', `
+  <h1>I put some XTC-3D on the glow in the dark turtle I designed and printed and now it look really cool.</h1>
+  <img src="images/glossyTurtle.jpg" width="700" />
+  <img src="images/glossyTurtleBlue.jpg" width="700" />
+  <h1>It even looks glossy in the dark.</h1>
+  `);
+  contentContainer.append(article2.build());
   contentContainer.append(article1.build());
   contentContainer.append(article0.build());
 
