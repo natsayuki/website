@@ -12,6 +12,7 @@ $(document).ready(function(){
   let idleTime = 0;
   let lastHeight = contentContainer.css('height');
   let selected = 'optionFeed';
+  let circles = [];
 
   class Article {
     constructor(theme, headline, body){
@@ -153,10 +154,26 @@ $(document).ready(function(){
     let width = parseInt(option.width()) + (parseInt(option.css('margin-left').replace('px', '')) );
     slider.animate({'left': offset, 'width': width}, 500);
   }
+  function circler(){
+    let trunc = false
+    $.each(circles, function(index, value){
+      console.log(value);
+      if(value.width() >= 300) trunc = true
+      value.width(value.width() + 15);
+      value.height(value.height() + 15);
+      value.css({'left': parseInt(value.css('left').replace('px', '')) - 7.5, 'top': parseInt(value.css('top').replace('px', '')) - 7.5});
+    });
+    if(trunc){
+      circles[circles.length-1].remove();
+      circles = circles.slice(0, circles.length - 1);
+    }
+    setTimeout(circler, 33.33);
+  }
 
 
   idle();
   checkHeight();
+  // circler();
 
   $(document).mousemove(function(){
     if(idleTime > 9) coverBack();
@@ -201,8 +218,35 @@ $(document).ready(function(){
     $(this).parent().find('.link').select();
     document.execCommand('copy');
   });
-  $(document).on('click', '.headline', function(){
+  $(document).on('click', '.headline', function(e){
     parent = $(this).parent()
+    $(".ripple").remove();
+    var posX = $(this).offset().left,
+          posY = $(this).offset().top,
+          buttonWidth = $(this).width(),
+          buttonHeight =  $(this).height();
+    let rippleColor = parent.attr('theme').split(",");
+    for(let i=0; i<rippleColor.length; i++){
+      temp = (parseInt(rippleColor[i]) + 20);
+      if(temp > 255) temp = 255;
+      rippleColor[i] = temp;
+    }
+    rippleColor = rippleColor[0].toString() + ', ' + rippleColor[1].toString() + ', ' + rippleColor[2].toString();
+    parent.append("<span class='ripple' style='background-color: rgb(" + rippleColor + ")'></span>");
+    if(buttonWidth >= buttonHeight) {
+      buttonHeight = buttonWidth;
+    } else {
+      buttonWidth = buttonHeight;
+    }
+    var x = e.pageX - posX - buttonWidth / 2;
+    var y = e.pageY - posY - buttonHeight / 2;
+
+    $(".ripple").css({
+      width: buttonWidth,
+      height: buttonHeight,
+      top: y + 'px',
+      left: x + 'px'
+    }).addClass("rippleEffect");
     $(parent).stop()
     if($(parent).attr('read') == 'false'){
       bodyHeight = $(parent).find('.body').css('height');
