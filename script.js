@@ -19,6 +19,13 @@ $(document).ready(function(){
       this.theme = theme;
       this.headline = headline;
       this.body = body;
+      this.rippleColor = theme.split(",");
+      for(let i=0; i<this.rippleColor.length; i++){
+        let temp = (parseInt(this.rippleColor[i]) + 20);
+        if(temp > 255) temp = 255;
+        this.rippleColor[i] = temp;
+      }
+      this.rippleColor = this.rippleColor[0].toString() + ', ' + this.rippleColor[1].toString() + ', ' + this.rippleColor[2].toString();
     }
     build(){
       return `
@@ -31,6 +38,7 @@ $(document).ready(function(){
             `+this.body+`
           </center>
         </div>
+        <div class="rippleTest" style="background-color: rgb(` + this.rippleColor + `)"></div>
       </div>
       `;
     }
@@ -70,7 +78,21 @@ $(document).ready(function(){
   it seems almost fitting they are now the owners.  Hopefully they don't screw it up somehow.
   </h1>
   `);
+  article4 = new Article('34, 188, 20', 'New Update Canceled?!', `
+  <h1>
+  You read that right!  A super cool new feature for the breakthrough website <a href="http://42turtle.com">42turtle.com</a>
+  (the intersection between fine journalism and great web design) was in fact canceled today before it ever saw the light of day.
+  When you click an aritcle, there is a super cool little bubble that appears at your mouse.  The new feature would see this
+  cool little bubble expanding to take up the full size of the article, slightly darkening the color, and would retract back to
+  your mouse when the article was closed.  This looked really cool and worked very well except for one thing.  The opening
+  bubble would always miss your mouse by a very small amount, but it was big enough to cancel this feature all to gether.
+  That and it lagged the heck out of everything.  Considering how unoptimized the site is already, it did not need more
+  cool bubbles to take all your RAM.  That is why this feature will actually be postponed (contrairy to earlier statements)
+  until the website is better optimized.  I know this is sad news for us all, but the cooler bubbles will have to wait.
+  </h1>
+  `);
 
+  contentContainer.append(article4.build());
   contentContainer.append(article3.build());
   contentContainer.append(article2.build());
   contentContainer.append(article1.build());
@@ -257,7 +279,14 @@ $(document).ready(function(){
       top: y + 'px',
       left: x + 'px'
     }).addClass("rippleEffect");
-    $(parent).stop()
+    // let x = e.pageX - $(this).offset().left + 50;
+    // let y = e.pageY - $(this).offset().top + 50;
+    // parent.find('.rippleTest').css({top: y, left: x, width: parent.height(), height: parent.height()});
+    // if(parent.attr('read') == 'false'){
+    //   parent.find('.rippleTest').css({top: y, left: x}).addClass('rippleOut');
+    // }
+    // else parent.find('.rippleTest').css({top: y - parent.height()/2, left: x - parent.height()/2}).removeClass('rippleOut');
+    parent.stop();
     if($(parent).attr('read') == 'false'){
       bodyHeight = $(parent).find('.body').css('height');
       bodyHeight = parseInt(bodyHeight.replace('px', ''));
