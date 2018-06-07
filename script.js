@@ -91,7 +91,25 @@ $(document).ready(function(){
   until the website is better optimized.  I know this is sad news for us all, but the cooler bubbles will have to wait.
   </h1>
   `);
+  article5 = new Article('255, 0, 0', 'New Gorillaz Song Off The Now Now', `
+  <img src="https://static.stereogum.com/uploads/2018/06/Gorillaz-Sorcererz-1528387583-640x533.jpg" />
+  <h1>
+  Gorillaz released yet another song from their new album The Now Now today.
+  <a href="https://www.youtube.com/watch?v=40xG4bMr9F4">Sorcererz</a> is the latest song to be joining the
+  pre-release track list.  With over half the songs out now, The Now Now is looking like maybe Gorillaz still has it
+  after Humanz.  <br />
+  </h1>
+  <img src="http://www.gorillaz.com/freemurdoc/murdoc.jpg" />
+  <h1>
+  Also we have finally heard word from Murdoc while he is still locked behind bars.  Well, there was the one interview
+  with him, but now you can actually talk to him yourself.  If you have an Amazon Echo or Google Home, you can speak to Murdoc
+  directly through the <a href="http://www.gorillaz.com/freemurdoc/">Free Murdoc</a> application available on both devices.
+  If you don't have either of those, do not lose hope.  You can still help Murdoc out through Facebook, Skype,
+  and KIK (wait what is KIK).  As the website says, Murdoc needs our help pronto.
+  </h1>
+  `);
 
+  contentContainer.append(article5.build());
   contentContainer.append(article4.build());
   contentContainer.append(article3.build());
   contentContainer.append(article2.build());
