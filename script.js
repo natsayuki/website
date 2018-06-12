@@ -108,7 +108,40 @@ $(document).ready(function(){
   and KIK (wait what is KIK).  As the website says, Murdoc needs our help pronto.
   </h1>
   `);
+  article6 = new Article('177, 205, 249', 'Super Smash Bros. Ultimate', `
+  <img src="https://cdn.vox-cdn.com/thumbor/q8RjM-fqDypZNM0Vg55fTDnfdB0=/0x0:2000x1125/920x613/filters:focal(840x403:1160x723)/cdn.vox-cdn.com/uploads/chorus_image/image/60035685/Switch_SuperSmashBrosUltimate_illustration_02.0.jpg" />
+  <h1>
+  As Nintendo showed breifly earlier this year, a new Smash Bros. game is in the making.  Not that E3 has come around this year,
+  we finally get to take a look at what this game is really going to be, and boy is it good.  The focus of this Smash game as
+  Sakurai stated, was to bring back every chracter from every previous Smash game.  This means I'll finally be able to play
+  as Bayonetta I guess.  Everyone is back in this game from Pichu to Wolf.  With the separation of Sheik and Zelda in Smash 4,
+  I wonder if the duo will reunite, maybe as a separate character, or as one replacing both.  With Charizard also being separate
+  in Smash 4 but returning to Pokemon Trainer in Ultimate, it could be possible.  Not only did we get all the old characters back
+  but we also got some new characters.  Inkling from Splatoon, and at long last, Ridley. Inkling is exciting I guess, but can
+  you believe that after all these years Ridley will actually be playable in a Smash game.  It(?) has been playable in fan mods
+  and games forever, but now it will finally appear as a playable character in Smash Ultimate.
+  </h1>
+  <img src="https://41zxbw463fq733z1kl101n01-wpengine.netdna-ssl.com/wp-content/uploads/2018/06/ridley-750x430.jpg" />
+  <h1>
+  Along with all of the character returning plus a few new ones, some other major things are coming to Smash Ultimate.
+  Perfect dodge has been added as well as directional air dodging (thank you).  Some other cool things were breifly shown
+  like quick jump attacks and flurries, as well as latter attacks and the sort.  They also showcased some of the changes made
+  to individual characters which look very interesting.  They have also updated the graphics on every stage, even the most
+  recent ones.  That is part of the huge amount of detail they appear to be putting into this game.  They showed how on
+  some characters, even the voicce actor changes between costumes which is just the type of thing that is so unnecessary
+  but so nice at the same time.  They also finally admitted that some characters are complete knock offs of others, introducing
+  Echo characters.  Maybe they will be an alternate choice now under the main character on the select screen.  Despite the
+  fact that they are technically different characters, I think it's nice that they are counting the duplicates as roughly the
+  same character.  Speaking of which, Peach is getting an Echo, Daisy.  They also breifly mentioned that characters
+  would be unlocked differently (maybe?) in this game.  All they said was they wanted to make each unlock feel unique,
+  so I guess we will just have to wait and see what they mean by that.  All in all, Smash Ultimate looks very exciting and
+  I cannot wait to play it.  With a release date of December 7th this year, it won't even be that long before we
+  can get our hands on it.  Also all characters Amiibo (even non Smash) will be supported which is nice.
+  </h1>
+  <img src="http://digitalspyuk.cdnds.net/16/12/980x490/landscape-1458661249-amiibo.jpg" />
+  `);
 
+  contentContainer.append(article6.build());
   contentContainer.append(article5.build());
   contentContainer.append(article4.build());
   contentContainer.append(article3.build());
