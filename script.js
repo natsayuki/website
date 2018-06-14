@@ -150,6 +150,19 @@ $(document).ready(function(){
   </h1>
   `);
 
+  article8 = new Article('55, 198, 189', 'The Now Now Is Pretty Much Out', `
+  <img src="https://steamuserimages-a.akamaihd.net/ugc/934941898162812628/3A0B5781C99A936ED39D8C6BA4F1C0BE1E52899A/?interpolation=lanczos-none&output-format=jpeg&output-quality=95&fit=inside%7C637%3A358&composite-to=*,*%7C637%3A358&background-color=black" />
+  <h1>
+  Sometime earlier today another song was officially released off The Now Now.
+  Fire Flies is the newest song to be joining the officially released club.
+  All of the other songs have been played on the Gorillaz tour taking place right now.
+  Two (Idaho and Hollywood) were even revealed it almost feels like a year ago now.
+  With all the songs out, my opinion on The Now Now is pretty good.  It has a lot of good songs,
+  but I will talk about that more in a review of The Now Now I will probably do later.
+  </h1>
+  `);
+
+  contentContainer.append(article8.build());
   contentContainer.append(article7.build());
   contentContainer.append(article6.build());
   contentContainer.append(article5.build());
@@ -191,53 +204,6 @@ $(document).ready(function(){
   projectsContainer.append(project1.build());
   projectsContainer.append(project0.build());
 
-
-  function idle(){
-    idleTime++;
-    if(idleTime > 9 && !navBar.hasClass('hideForBack')){
-      let temp = true
-      contentContainer.children('.article').each(function(){
-        if($(this).attr('read') == 'true') temp = false
-      });
-      projectsContainer.children('.article').each(function(){
-        if($(this).attr('read') == 'true') temp = false
-      });
-      if(temp) showBack();
-    }
-    setTimeout(function(){idle()}, 1000)
-  }
-  function showBack(){
-    navBar.animate({'opacity': '0'}, 500);
-    contentWrapper.animate({'opacity': '0'}, 500);
-    projectsWrapper.animate({'opacity': '0'}, 500);
-    scroller.animate({'opacity': '0'}, 500);
-  }
-  function coverBack(){
-    navBar.stop();
-    navBar.css({'opacity': '1'});
-    if(selected == 'optionFeed'){
-      contentWrapper.stop();
-      contentWrapper.css({'opacity': '1'});
-    }
-    if(selected == 'optionProjects'){
-      projectsWrapper.stop();
-      projectsWrapper.css({'opacity': '1'});
-    }
-    scroller.stop()
-    scroller.css({'opacity': '1'});
-    idleTime = 0
-  }
-  function checkHeight(){
-    if(contentContainer.css('height') != lastHeight && selected == 'optionFeed'){
-      lastHeight = contentContainer.css('height');
-      filler.css({'height': contentContainer.css('height')});
-    }
-    else if(projectsContainer.css('height') != lastHeight && selected == 'optionProjects'){
-      lastHeight = projectsContainer.css('height');
-      filler.css({'height': projectsContainer.css('height')});
-    }
-    setTimeout(checkHeight, 50);
-  }
   function highlight(article){
     article.css({"border-radius": '1rem', 'box-shadow': '3rem 3rem 3rem rgb(' + article.attr('theme') + ')'});
   }
@@ -247,40 +213,7 @@ $(document).ready(function(){
     let width = parseInt(option.width()) + (parseInt(option.css('margin-left').replace('px', '')) );
     slider.animate({'left': offset, 'width': width}, 500);
   }
-  function circler(){
-    let trunc = false
-    $.each(circles, function(index, value){
-      console.log(value);
-      if(value.width() >= 300) trunc = true
-      value.width(value.width() + 15);
-      value.height(value.height() + 15);
-      value.css({'left': parseInt(value.css('left').replace('px', '')) - 7.5, 'top': parseInt(value.css('top').replace('px', '')) - 7.5});
-    });
-    if(trunc){
-      circles[circles.length-1].remove();
-      circles = circles.slice(0, circles.length - 1);
-    }
-    setTimeout(circler, 33.33);
-  }
 
-
-  // idle();
-  // checkHeight();
-  // circler();
-
-  $(document).mousemove(function(){
-    if(idleTime > 9) coverBack();
-    idleTime = 0;
-  });
-  contentWrapper.scroll(function(){
-    if(idleTime > 9) coverBack();
-    idleTime = 0;
-  });
-  filler.css({'height': contentContainer.css('height')});
-  scroller.scroll(function () {
-    if(selected == 'optionFeed') contentWrapper.scrollTop($(this).scrollTop());
-    else if(selected == 'optionProjects') projectsWrapper.scrollTop($(this).scrollTop());
-  });
   num = 0;
   contentContainer.children('.article').each(function(){
     $(this).attr('num', num.toString());
@@ -340,13 +273,6 @@ $(document).ready(function(){
       top: y + 'px',
       left: x + 'px'
     }).addClass("rippleEffect");
-    // let x = e.pageX - $(this).offset().left + 50;
-    // let y = e.pageY - $(this).offset().top + 50;
-    // parent.find('.rippleTest').css({top: y, left: x, width: parent.height(), height: parent.height()});
-    // if(parent.attr('read') == 'false'){
-    //   parent.find('.rippleTest').css({top: y, left: x}).addClass('rippleOut');
-    // }
-    // else parent.find('.rippleTest').css({top: y - parent.height()/2, left: x - parent.height()/2}).removeClass('rippleOut');
     parent.stop();
     if($(parent).attr('read') == 'false'){
       bodyHeight = $(parent).find('.body').css('height');
