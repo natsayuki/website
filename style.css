@@ -6,16 +6,15 @@
   height: 15vh;
 }
 body{
-  background: url('images/full.gif');
+  /* background: url('images/full.gif'); */
+  background-color: black;
   background-size: 100%;
 }
 #contentWrapper{
   position: fixed;
   left: 0px;
   top:0px;
-  width: 105%;
-  height: 100vh;
-  clip-path: inset(19vh 0px 0px 0px);
+  width: 100%;
   overflow: auto;
 }
 body{
@@ -25,9 +24,9 @@ body{
   width: 100%;
   height: 500rem;
 }
-#dummy{
-  height: 19vh;
-  width: 100vh;
+.page{
+  margin-top: 19vh;
+  height: 81vh;
 }
 #scroller{
   width: 100%;
@@ -124,9 +123,7 @@ a:hover{
   position: fixed;
   left: 0px;
   top:0px;
-  width: 105%;
-  height: 100vh;
-  clip-path: inset(19vh 0px 0px 0px);
+  width: 100%;
   overflow: auto;
   display: none;
 }

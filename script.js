@@ -141,6 +141,16 @@ $(document).ready(function(){
   <img src="http://digitalspyuk.cdnds.net/16/12/980x490/landscape-1458661249-amiibo.jpg" />
   `);
 
+  article7 = new Article('244, 232, 66', 'Optimization Wow', `
+  <h1>
+  It took me a long enough time, but I actually got around to optimization.
+  This means no more cool turtles in the background or idle timers.  I also
+  had to cut the full page scroll bar because it seemed a bit unnecessary.
+  Hopefully now this website won't be a laggy peice of junk.
+  </h1>
+  `);
+
+  contentContainer.append(article7.build());
   contentContainer.append(article6.build());
   contentContainer.append(article5.build());
   contentContainer.append(article4.build());
@@ -254,8 +264,8 @@ $(document).ready(function(){
   }
 
 
-  idle();
-  checkHeight();
+  // idle();
+  // checkHeight();
   // circler();
 
   $(document).mousemove(function(){
