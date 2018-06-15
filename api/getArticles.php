@@ -14,7 +14,7 @@
     if($max < 0){
       $max = 0;
     }
-    $sql = 'SELECT * FROM articles WHERE `key` BETWEEN ' . $count . ' AND ' . $max;
+    $sql = 'SELECT * FROM articles WHERE `key` BETWEEN ' . $max . ' AND ' . $count;
     $results = $conn->query($sql);
     if($results->num_rows > 0){
       $rows = array();
