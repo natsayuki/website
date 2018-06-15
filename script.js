@@ -345,6 +345,10 @@ $(document).ready(function(){
     data: {type: 'new'},
     success: function(data){
       console.log(data);
+    },
+    error: function(XMLHttpRequest, textStatus, errorThrown) {
+        alert("Status: " + textStatus); alert("Error: " + errorThrown);
     }
-  })
+
+  });
 });
