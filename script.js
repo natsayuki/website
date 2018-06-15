@@ -135,21 +135,7 @@ $(document).ready(function(){
       document.title = "42turtle.com: PROJECTS";
     }
   });
-  $('#optionFeed').click();
-  params = new URLSearchParams(window.location.search);
-  if(params.has('a') && params.has('p')){
-    $('#' + params.get('p')).click();
-    console.log("div[num='" + params.get('a') + "'][parent='" + params.get('p') + "']");
-    let article;
-    if(params.get('p') == 'optionFeed'){
-      article = contentContainer.find("div[num='" + params.get('a') + "']");
-    }
-    else if(params.get('p') == 'optionProjects'){
-      article = projectsContainer.find("div[num='" + params.get('a') + "']");
-    }
-    contentWrapper.scrollTop(article.offset().top);
-    highlight(article);
-  }
+
   $.ajax('api/getArticles.php', {
     type: 'get',
     data: {type: 'new'},
@@ -168,3 +154,18 @@ $(document).ready(function(){
     }
   });
 });
+$('#optionFeed').click();
+params = new URLSearchParams(window.location.search);
+if(params.has('a') && params.has('p')){
+  $('#' + params.get('p')).click();
+  console.log("div[num='" + params.get('a') + "'][parent='" + params.get('p') + "']");
+  let article;
+  if(params.get('p') == 'optionFeed'){
+    article = contentContainer.find("div[num='" + params.get('a') + "']");
+  }
+  else if(params.get('p') == 'optionProjects'){
+    article = projectsContainer.find("div[num='" + params.get('a') + "']");
+  }
+  contentWrapper.scrollTop(article.offset().top);
+  highlight(article);
+}
