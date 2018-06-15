@@ -197,7 +197,7 @@ $(document).ready(function(){
     success: function(data){
       data = JSON.parse(data);
       $.each(data.reverse(), function(key, value){
-        let contentWrapper;
+        let wrapper;
         if(value['type'] == 'optionFeed'){
           wrapper = contentWrapper;
         }
