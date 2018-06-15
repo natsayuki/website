@@ -142,14 +142,14 @@ $(document).ready(function(){
     success: function(data){
       data = JSON.parse(data);
       $.each(data.reverse(), function(key, value){
-        let wrapper;
+        let container;
         if(value['type'] == 'optionFeed'){
-          wrapper = contentWrapper;
+          container = contentWrapper;
         }
         else{
-          wrapper = projectsWrapper;
+          container = projectsWrapper;
         }
-        wrapper.append(new Article(value['theme'], value['headline'], value['body'], value['key'], value['type']).build());
+        container.append(new Article(value['theme'], value['headline'], value['body'], value['key'], value['type']).build());
       });
       $('#optionFeed').click();
       params = new URLSearchParams(window.location.search);
@@ -166,7 +166,6 @@ $(document).ready(function(){
           article = projectsContainer.find("div[num='" + params.get('a') + "']");
           container = projectsContainer;
         }
-        article = $('div[num="15"]');
         container.scrollTop(article.offset().top);
         highlight(article);
       }
