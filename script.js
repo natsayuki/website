@@ -349,7 +349,7 @@ $(document).ready(function(){
       console.log();
       $.each(data, function(key, value){
         console.log(value);
-        contentWrapper.append(new Article(value['theme'], value['headline'], value['body']));
+        contentWrapper.append(new Article(value['theme'], value['headline'], value['body']).build());
       });
     }
   });
