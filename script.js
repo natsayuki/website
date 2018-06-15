@@ -17,13 +17,14 @@ $(document).ready(function(){
   let circles = [];
 
   class Article {
-    constructor(theme, headline, body, num){
+    constructor(theme, headline, body, num, type){
       this.theme = theme;
       this.headline = headline;
       this.body = body;
       this.rippleColor = theme.split(",");
       this.num = num;
-      this.link = location.protocol + '//' + location.host + location.pathname + '?a=' + this.num + '&p=optionProjects'
+      this.type = type;
+      this.link = location.protocol + '//' + location.host + location.pathname + '?a=' + this.num + '&p=' + this.type;
       for(let i=0; i<this.rippleColor.length; i++){
         let temp = (parseInt(this.rippleColor[i]) + 20);
         if(temp > 255) temp = 255;
@@ -196,7 +197,14 @@ $(document).ready(function(){
     success: function(data){
       data = JSON.parse(data);
       $.each(data.reverse(), function(key, value){
-        contentWrapper.append(new Article(value['theme'], value['headline'], value['body'], value['key']).build());
+        let contentWrapper;
+        if(value['type'] == 'optionFeed'){
+          wrapper = contentWrapper;
+        }
+        else{
+          wrapper = projectsWrapper;
+        }
+        wrapper.append(new Article(value['theme'], value['headline'], value['body'], value['key'], value['type']).build());
       });
     }
   });
