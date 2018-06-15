@@ -9,6 +9,19 @@
   if($type == 'new'){
     $sql = 'SELECT * FROM articles';
     $results = $conn->query($sql);
-    echo var_dump($results->num_rows);
+    $count = $results->num_rows;
+    $max = $count - 20;
+    if($max < 0){
+      $max = 0;
+    }
+    $sql = 'SELECT * FROM articles WHERE key BETWEEN ' . $count . ' AND ' . $max;
+    $results = $conn->query($sql);
+    if($results->num_rows > 0){
+      $rows = array();
+      while($row = $result->fetch_assoc()){
+        array_push($rows, $row);
+      }
+      echo json_encode($rows);
+    }
   }
 ?>
