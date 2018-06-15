@@ -160,13 +160,13 @@ $(document).ready(function(){
         let container;
         if(params.get('p') == 'optionFeed'){
           article = contentContainer.find("div[num='" + params.get('a') + "']");
-          container = contentContainer;
+          wrapper = contentWrapper;
         }
         else if(params.get('p') == 'optionProjects'){
           article = projectsContainer.find("div[num='" + params.get('a') + "']");
-          container = projectsContainer;
+          wrapper = projectsWrapper;
         }
-        container.scrollTop(article.offset().top);
+        wrapper.scrollTop(article.offset().top);
         highlight(article);
       }
     }
