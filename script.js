@@ -31,7 +31,7 @@ $(document).ready(function(){
     }
     build(){
       return `
-      <div class="article" theme="`+this.theme+`" read="false" style="background-color: rgb(` + this.theme + `)">
+      <div class="article" theme="`+this.theme+`" read="false" style="background-color: rgba(` + this.theme + `, .5)">
         <div class="headline">
           <h1>`+this.headline+`</h1>
         </div>
