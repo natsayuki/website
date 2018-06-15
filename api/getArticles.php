@@ -7,8 +7,8 @@
   // }
   $type = $_GET['type'];
   if($type == 'new'){
-    $sql = 'SELECT COUNT(*) FROM articles';
+    $sql = 'SELECT * FROM articles';
     $results = $conn->query($sql);
-    echo var_dump($results);
+    echo var_dump($results->num_rows());
   }
 ?>
