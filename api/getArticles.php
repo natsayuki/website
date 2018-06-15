@@ -9,6 +9,6 @@
   if($type == 'new'){
     $sql = 'SELECT * FROM articles';
     $results = $conn->query($sql);
-    echo var_dump($results->num_rows());
+    echo var_dump($results->num_rows);
   }
 ?>
