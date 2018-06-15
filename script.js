@@ -144,10 +144,10 @@ $(document).ready(function(){
       $.each(data.reverse(), function(key, value){
         let container;
         if(value['type'] == 'optionFeed'){
-          container = contentWrapper;
+          container = contentContainer;
         }
         else{
-          container = projectsWrapper;
+          container = projectsContainer;
         }
         container.append(new Article(value['theme'], value['headline'], value['body'], value['key'], value['type']).build());
       });
