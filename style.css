@@ -50,6 +50,7 @@ body{
 .articleMobile{
   width: 100% !important;
   font-size: 200%;
+  margin-left: 0px;
 }
 .body > center > h1{
   margin: 1rem;
