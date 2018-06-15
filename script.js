@@ -340,4 +340,11 @@ $(document).ready(function(){
     contentWrapper.scrollTop(article.offset().top);
     highlight(article);
   }
+  $.ajax('api/getArticles.php', {
+    type: 'get',
+    data: {type: 'new'},
+    success: function(data){
+      console.log(data);
+    }
+  })
 });
