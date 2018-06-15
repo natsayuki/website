@@ -47,6 +47,10 @@ body{
   overflow: hidden;
   margin-bottom: 2rem;
 }
+.articleMobile{
+  width: 100% !important;
+  font-size: 200%;
+}
 .body > center > h1{
   margin: 1rem;
   padding: 1rem;
