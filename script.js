@@ -345,6 +345,12 @@ $(document).ready(function(){
     data: {type: 'new'},
     success: function(data){
       console.log(data);
+      data = JSON.parse(data);
+      console.log();
+      $.each(data, function(key, value){
+        console.log(value);
+        contentWrapper.append(new Article(value['theme'], value['headline'], value['body']));
+      });
     }
   });
 });
