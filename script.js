@@ -34,7 +34,7 @@ $(document).ready(function(){
     }
     build(){
       return `
-      <div class="article" theme="`+this.theme+`" read="false" style="background-color: rgba(` + this.theme + `, .5)">
+      <div class="article" theme="`+this.theme+`" read="false" style="background-color: rgba(` + this.theme + `, .5)" num="` + this.num + `">
         <div class="headline">
           <div class="share"></div>
           <textarea class="link">` + this.link + `</textarea>
@@ -166,7 +166,7 @@ $(document).ready(function(){
           article = projectsContainer.find("div[num='" + params.get('a') + "']");
           container = projectsContainer;
         }
-        // container.scrollTop(article.offset().top);
+        container.scrollTop(article.offset().top);
         highlight(article);
       }
     }
