@@ -31,7 +31,7 @@ $(document).ready(function(){
     }
     build(){
       return `
-      <div class="article" theme="`+this.theme+`" read="false">
+      <div class="article" theme="`+this.theme+`" read="false" style="background-color: rgb(` + this.theme + `)">
         <div class="headline">
           <h1>`+this.headline+`</h1>
         </div>
@@ -349,7 +349,7 @@ $(document).ready(function(){
       console.log();
       $.each(data, function(key, value){
         console.log(value);
-        contentWrapper.append(new Article(value['theme'], value['headline'], value['body']).build()).css({'background-color': 'rgba(' +value['theme'] + ", .5)"});
+        contentWrapper.append(new Article(value['theme'], value['headline'], value['body']).build());
       });
     }
   });
