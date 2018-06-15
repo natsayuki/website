@@ -166,6 +166,7 @@ $(document).ready(function(){
           article = projectsContainer.find("div[num='" + params.get('a') + "']");
           container = projectsContainer;
         }
+        article = $('div[num="15"]');
         container.scrollTop(article.offset().top);
         highlight(article);
       }
