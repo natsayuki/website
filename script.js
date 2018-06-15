@@ -347,7 +347,7 @@ $(document).ready(function(){
       console.log(data);
       data = JSON.parse(data);
       console.log();
-      $.each(data, function(key, value){
+      $.each(data.reverse(), function(key, value){
         console.log(value);
         contentWrapper.append(new Article(value['theme'], value['headline'], value['body']).build());
       });
