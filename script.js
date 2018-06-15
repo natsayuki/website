@@ -151,21 +151,21 @@ $(document).ready(function(){
         }
         wrapper.append(new Article(value['theme'], value['headline'], value['body'], value['key'], value['type']).build());
       });
+      $('#optionFeed').click();
+      params = new URLSearchParams(window.location.search);
+      if(params.has('a') && params.has('p')){
+        $('#' + params.get('p')).click();
+        console.log("div[num='" + params.get('a') + "'][parent='" + params.get('p') + "']");
+        let article;
+        if(params.get('p') == 'optionFeed'){
+          article = contentContainer.find("div[num='" + params.get('a') + "']");
+        }
+        else if(params.get('p') == 'optionProjects'){
+          article = projectsContainer.find("div[num='" + params.get('a') + "']");
+        }
+        contentWrapper.scrollTop(article.offset().top);
+        highlight(article);
+      }
     }
   });
 });
-$('#optionFeed').click();
-params = new URLSearchParams(window.location.search);
-if(params.has('a') && params.has('p')){
-  $('#' + params.get('p')).click();
-  console.log("div[num='" + params.get('a') + "'][parent='" + params.get('p') + "']");
-  let article;
-  if(params.get('p') == 'optionFeed'){
-    article = contentContainer.find("div[num='" + params.get('a') + "']");
-  }
-  else if(params.get('p') == 'optionProjects'){
-    article = projectsContainer.find("div[num='" + params.get('a') + "']");
-  }
-  contentWrapper.scrollTop(article.offset().top);
-  highlight(article);
-}
