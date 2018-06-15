@@ -157,13 +157,16 @@ $(document).ready(function(){
         $('#' + params.get('p')).click();
         console.log("div[num='" + params.get('a') + "'][parent='" + params.get('p') + "']");
         let article;
+        let container;
         if(params.get('p') == 'optionFeed'){
           article = contentContainer.find("div[num='" + params.get('a') + "']");
+          container = contentContainer;
         }
         else if(params.get('p') == 'optionProjects'){
           article = projectsContainer.find("div[num='" + params.get('a') + "']");
+          container = projectsContainer;
         }
-        contentWrapper.scrollTop(article.offset().top);
+        container.scrollTop(article.offset().top);
         highlight(article);
       }
     }
