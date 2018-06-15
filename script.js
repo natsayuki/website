@@ -17,11 +17,13 @@ $(document).ready(function(){
   let circles = [];
 
   class Article {
-    constructor(theme, headline, body){
+    constructor(theme, headline, body, num){
       this.theme = theme;
       this.headline = headline;
       this.body = body;
       this.rippleColor = theme.split(",");
+      this.num = num;
+      this.link = location.protocol + '//' + location.host + location.pathname + '?a=' + this.num + '&p=optionProjects'
       for(let i=0; i<this.rippleColor.length; i++){
         let temp = (parseInt(this.rippleColor[i]) + 20);
         if(temp > 255) temp = 255;
@@ -33,6 +35,8 @@ $(document).ready(function(){
       return `
       <div class="article" theme="`+this.theme+`" read="false" style="background-color: rgba(` + this.theme + `, .5)">
         <div class="headline">
+          <div class="share"></div>
+          <textarea class="link">` + this.link + `</textarea>
           <h1>`+this.headline+`</h1>
         </div>
         <div class="body">
