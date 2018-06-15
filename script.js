@@ -166,7 +166,7 @@ $(document).ready(function(){
           article = projectsContainer.find("div[num='" + params.get('a') + "']");
           wrapper = projectsWrapper;
         }
-        wrapper.scrollTop(article.offset().top);
+        wrapper.scrollTop(article.offset().top - 50);
         highlight(article);
       }
     }
