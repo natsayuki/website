@@ -18,7 +18,7 @@
     $results = $conn->query($sql);
     if($results->num_rows > 0){
       $rows = array();
-      while($row = $result->fetch_assoc()){
+      while($row = $results->fetch_assoc()){
         array_push($rows, $row);
       }
       echo json_encode($rows);
