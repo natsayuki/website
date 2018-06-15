@@ -8,6 +8,8 @@ $(document).ready(function(){
   const filler = $('#filler');
   const share = $('.share');
   const slider = $('#slider');
+  const notification = $('#notification');
+  const notificationText = $('#notificationText');
 
   let idleTime = 0;
   let lastHeight = contentContainer.css('height');
@@ -191,6 +193,7 @@ $(document).ready(function(){
   can be viewed <a href="https://github.com/the42ndturtle/PatkerChat">here</a>.
   </h1>
   `);
+
   project1 = new Article('0, 242, 255', 'Rain', `
   <h1>
   Rain is a... uh... shape generator?  Click anywhere on the screen to add drops to the randomly generated
@@ -201,6 +204,14 @@ $(document).ready(function(){
   source code for RainX can be found <a href="https://github.com/the42ndturtle/rainX">here</a>.
   </h1>
   `);
+
+  project2 = new Article('196, 105, 53', 'I Have More Projects', `
+  <h1>
+  I'm just too lazy to write about them right now.
+  </h1>
+  `);
+
+  projectsContainer.append(project2.build());
   projectsContainer.append(project1.build());
   projectsContainer.append(project0.build());
 
@@ -212,6 +223,13 @@ $(document).ready(function(){
     let offset = parseInt(option.offset().left) - parseInt(option.css('margin-left').replace('px', ''));
     let width = parseInt(option.width()) + (parseInt(option.css('margin-left').replace('px', '')) );
     slider.animate({'left': offset, 'width': width}, 500);
+  }
+  function notify(text){
+    notificationText.text(text);
+    notification.animate({'bottom': '0px'}, 500);
+    setTimeout(function(){
+      notification.animate({"bottom": '-5vh'}, 500);
+    }, 3000)
   }
 
   num = 0;
@@ -243,6 +261,7 @@ $(document).ready(function(){
   $(document).on("click", '.share', function(){
     $(this).parent().find('.link').select();
     document.execCommand('copy');
+    notify('copied to clipboard');
   });
   $(document).on('click', '.headline', function(e){
     parent = $(this).parent()
