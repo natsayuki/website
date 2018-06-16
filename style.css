@@ -5,7 +5,7 @@
   background-color: aqua;
   height: 15vh;
 }
-#navBarMobile{
+.navBarMobile{
   font-size: 200%;
 }
 body{

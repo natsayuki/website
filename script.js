@@ -178,7 +178,7 @@ $(document).ready(function(){
       }
       if(mobile){
         $('.article').addClass('articleMobile');
-        $('#navBar').attr('id', 'NavBarMobile');
+        $('#navBar').addClass('NavBarMobile');
       }
     }
   });
