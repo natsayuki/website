@@ -38,7 +38,7 @@ $(document).ready(function(){
         <div class="headline">
           <div class="share"></div>
           <textarea class="link">` + this.link + `</textarea>
-          <h1>`+this.headline+`</h1>
+          <h1 align="center">`+this.headline+`</h1>
         </div>
         <div class="body">
           <center>
