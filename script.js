@@ -183,6 +183,7 @@ $(document).ready(function(){
     }
   });
   $(window).bind("orientationchange", function(){
-    if(window.orientation == 90 || window.orientation == -90) window.orientation = 0;
+    if(window.orientation == 90) $('body').css({'transform': 'rotate(-90)'});
+    else if(window.orientation == -90) $('body').css({'transform': 'rotate(90)'});
    });
 });
