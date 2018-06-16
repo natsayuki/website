@@ -215,3 +215,6 @@ a:hover{
   bottom: -5vh;
   background-color: aqua;
 }
+input{
+  font-size: 50px;
+}
