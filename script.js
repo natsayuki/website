@@ -17,13 +17,14 @@ $(document).ready(function(){
   let circles = [];
 
   class Article {
-    constructor(theme, headline, body, num, type){
+    constructor(theme, headline, body, num, type, date){
       this.theme = theme;
       this.headline = headline;
       this.body = body;
       this.rippleColor = theme.split(",");
       this.num = num;
       this.type = type;
+      this.date = date;
       this.link = location.protocol + '//' + location.host + location.pathname + '?a=' + this.num + '&p=' + this.type;
       for(let i=0; i<this.rippleColor.length; i++){
         let temp = (parseInt(this.rippleColor[i]) + 20);
@@ -39,6 +40,7 @@ $(document).ready(function(){
           <div class="share"></div>
           <textarea class="link">` + this.link + `</textarea>
           <h1 align="center">`+this.headline+`</h1>
+          <h1 class="date">` + this.date + `</h1>
         </div>
         <div class="body">
           <center>
@@ -156,7 +158,7 @@ $(document).ready(function(){
         else{
           container = projectsContainer;
         }
-        container.append(new Article(value['theme'], value['headline'], value['body'], value['key'], value['type']).build());
+        container.append(new Article(value['theme'], value['headline'], value['body'], value['key'], value['type'], value['date']).build());
       });
       $('#optionFeed').click();
       params = new URLSearchParams(window.location.search);
