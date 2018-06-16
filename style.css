@@ -5,10 +5,14 @@
   background-color: aqua;
   height: 15vh;
 }
+#navBarMobile{
+  font-size: 200%;
+}
 body{
   /* background: url('images/full.gif'); */
   background-color: black;
   background-size: 100%;
+  position: fixed;
 }
 #contentWrapper{
   position: fixed;
