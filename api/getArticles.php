@@ -32,7 +32,7 @@
   }
   else if($type == 'views'){
     $num = $_POST['num'];
-    $sql = 'UPDATE articles SET vieews = views + 1 WHERE key = ' . $num;
+    $sql = 'UPDATE articles SET views = views + 1 WHERE key = ' . $num;
     $conn->query($sql);
   }
 ?>
