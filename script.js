@@ -129,7 +129,7 @@ $(document).ready(function(){
       $(parent).attr('read', 'false');
       parent.find('.headlineImg').animate({'opacity': '.4'});
     }
-    $.ajax('getArticles.php', {
+    $.ajax('api/getArticles.php', {
       type: 'POST',
       data: {type: 'views', num: parent.attr('num')}
     })
