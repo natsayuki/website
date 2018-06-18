@@ -124,16 +124,16 @@ $(document).ready(function(){
       $(parent).animate({'height': fullHeight});
       $(parent).attr('read', 'true');
       parent.find('.headlineImg').animate({'opacity': '0'});
+      $.ajax('api/getArticles.php', {
+        type: 'POST',
+        data: {type: 'views', num: parent.attr('num')}
+      });
     }
     else{
       $(parent).animate({'height': $(parent).find('.headline').css('height')});
       $(parent).attr('read', 'false');
       parent.find('.headlineImg').animate({'opacity': '.4'});
     }
-    $.ajax('api/getArticles.php', {
-      type: 'POST',
-      data: {type: 'views', num: parent.attr('num')}
-    })
   });
   $('.option').click(function(){
     select($(this));
