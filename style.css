@@ -232,3 +232,6 @@ textarea{
   bottom: 0px;
   right: 1rem;
 }
+.imageMobile{
+  width: 100% !important;
+}
