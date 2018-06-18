@@ -39,6 +39,7 @@ $(document).ready(function(){
       <div class="article" theme="`+this.theme+`" read="false" style="background-color: rgba(` + this.theme + `, .5)" num="` + this.num + `">
         <div class="headline">
           <div class="share"></div>
+          <div class="eye"></div>
           <textarea class="link">` + this.link + `</textarea>
           <h1 align="center">`+this.headline+`</h1>
           <h1 class="date">` + this.date + `</h1>

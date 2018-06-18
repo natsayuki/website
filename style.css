@@ -238,5 +238,14 @@ textarea{
 .views{
   position: absolute;
   top: 0px;
+  left: 3rem;
+}
+.eye{
+  background-image: url('images/eye.png');
+  background-size: 100%;
+  position: absolute;
+  top: 0px;
   left: 2rem;
+  width: 1rem;
+  height: 1rem;
 }
