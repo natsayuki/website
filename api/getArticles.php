@@ -5,7 +5,12 @@
   //   echo "uh oh";
   //   exit;
   // }
-  $type = $_GET['type'];
+  if(isset($_GET['type'])){
+    $type = $_GET['type'];
+  }
+  else{
+    $type = $_POST['type'];
+  }
   if($type == 'new'){
     $sql = 'SELECT * FROM articles';
     $results = $conn->query($sql);
@@ -24,5 +29,10 @@
       }
       echo json_encode($rows);
     }
+  }
+  else if($type == 'views'){
+    $num = $_POST['num'];
+    $sql = 'UPDATE articles SET vieews = views + 1 WHERE key = ' . $num;
+    $conn->query($sql);
   }
 ?>
