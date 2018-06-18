@@ -235,3 +235,8 @@ textarea{
 .mediaMobile{
   width: 100% !important;
 }
+.views{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
