@@ -183,7 +183,8 @@ $(document).ready(function(){
       if(mobile){
         $('.article').addClass('articleMobile');
         $('#navBar').addClass('navBarMobile');
-        $('img').addClass('imageMobile');
+        $('img').addClass('mediaMobile');
+        $('iframe').addClass('mediaMobile');
       }
     }
   });
