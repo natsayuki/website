@@ -120,10 +120,12 @@ $(document).ready(function(){
       fullHeight = headlineHeight + bodyHeight + (headlineHeight/5)
       $(parent).animate({'height': fullHeight});
       $(parent).attr('read', 'true');
+      parent.find('.headlineImg').animate({'opacity': '0'});
     }
     else{
       $(parent).animate({'height': $(parent).find('.headline').css('height')});
       $(parent).attr('read', 'false');
+      parent.find('.headlineImg').animate({'opacity': '.4'});
     }
   });
   $('.option').click(function(){
@@ -191,6 +193,6 @@ $(document).ready(function(){
 });
 /*
 <script>
-  
+
 </script>
 */
