@@ -244,9 +244,9 @@ textarea{
   background-image: url('images/eye.png');
   background-size: 100%;
   position: absolute;
-  top: 1.9rem;
-  left: 2rem;
-  width: 2rem;
-  height: 2rem;
+  top: 1.9em;
+  left: 2em;
+  width: 2em;
+  height: 2em;
   filter: brightness(0%);
 }
