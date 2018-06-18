@@ -218,3 +218,9 @@ a:hover{
 textarea{
   font-size: 50px;
 }
+.headlineArticle{
+  position: fixed;
+  top:0px;
+  left: 0px;
+  z-index: 0;
+}
