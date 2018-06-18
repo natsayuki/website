@@ -167,7 +167,7 @@ $(document).ready(function(){
           container = projectsContainer;
         }
         container.append(new Article(value['theme'], value['headline'], value['body'], value['key'],
-         value['type'], value['date'], value['values']).build());
+         value['type'], value['date'], value['views']).build());
       });
       $('#optionFeed').click();
       params = new URLSearchParams(window.location.search);
