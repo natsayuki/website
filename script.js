@@ -4,6 +4,7 @@ $(document).ready(function(){
   const contentContainer = $('#contentContainer');
   const projectsWrapper = $('#projectsWrapper');
   const projectsContainer = $('#projectsContainer');
+  const reviewsContainer = $('#reviewsContainer');
   const scroller = $('#scroller');
   const filler = $('#filler');
   const share = $('.share');
