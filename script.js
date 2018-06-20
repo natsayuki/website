@@ -210,6 +210,7 @@ $(document).ready(function(){
         $('#navBar').addClass('navBarMobile');
         $('img').addClass('mediaMobile');
         $('iframe').addClass('mediaMobile');
+        $('.seal').addClass('sealMobile');
       }
     }
   });
