@@ -254,8 +254,8 @@ textarea{
   position: absolute;
   top: 13vh;
   left: 1rem;
-  width: 15vh;
-  height: 15vh;
+  width: 10vh;
+  height: 10vh;
 }
 .sealOfApproval{
   background-image: url('images/sealofapproval.png');
