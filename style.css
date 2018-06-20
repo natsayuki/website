@@ -252,10 +252,10 @@ textarea{
 }
 .seal{
   position: absolute;
-  top: 20vh;
+  top: 18vh;
   left: 1rem;
-  width: 10vh;
-  height: 10vh;
+  width: 15vh;
+  height: 15vh;
 }
 .sealOfApproval{
   background-image: url('images/sealofapproval.png');
