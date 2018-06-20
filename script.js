@@ -3,6 +3,7 @@ $(document).ready(function(){
   const contentWrapper = $('#contentWrapper');
   const contentContainer = $('#contentContainer');
   const projectsWrapper = $('#projectsWrapper');
+  const reviewsWrapper = $('#reviewsWrapper');
   const projectsContainer = $('#projectsContainer');
   const reviewsContainer = $('#reviewsContainer');
   const scroller = $('#scroller');
