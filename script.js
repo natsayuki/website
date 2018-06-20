@@ -198,6 +198,10 @@ $(document).ready(function(){
           article = projectsContainer.find("div[num='" + params.get('a') + "']");
           wrapper = projectsWrapper;
         }
+        else if(params.get('p') == 'optionReviews'){
+          article = reviewsContainer.find("div[num='" + params.get('a') + "']");
+          wrapper = reviewsWrapper;
+        }
         wrapper.scrollTop(article.offset().top - contentWrapper.offset().top);
         highlight(article);
       }
