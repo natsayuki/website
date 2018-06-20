@@ -26,7 +26,7 @@
       $rows = array();
       while($row = $results ->fetch_assoc()){
         array_push($rows, $row);
-        echo var_dump($row);
+        echo $row['headline'];
       }
       echo json_encode($rows);
     }
