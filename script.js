@@ -17,7 +17,7 @@ $(document).ready(function(){
   let circles = [];
 
   class Article {
-    constructor(theme, headline, body, num, type, date, views){
+    constructor(theme, headline, body, num, type, date, views, image){
       this.theme = theme;
       this.headline = headline;
       this.body = body;
@@ -26,6 +26,7 @@ $(document).ready(function(){
       this.type = type;
       this.date = date;
       this.views = views;
+      this.image = image;
       this.link = location.protocol + '//' + location.host + location.pathname + '?a=' + this.num + '&p=' + this.type;
       for(let i=0; i<this.rippleColor.length; i++){
         let temp = (parseInt(this.rippleColor[i]) + 20);
@@ -44,6 +45,7 @@ $(document).ready(function(){
           <h1 align="center">`+this.headline+`</h1>
           <h1 class="date">` + this.date + `</h1>
           <h1 class="views">` + this.views + `</h1>
+          <img src="` + this.image + `" class="headlineImg" />
         </div>
         <div class="body">
           <center>
@@ -152,6 +154,12 @@ $(document).ready(function(){
       projectsWrapper.animate({'opacity': '1'}, {duration: 500, complete: function(){projectsWrapper.css({'display': 'block'})}});
       document.title = "42turtle.com: PROJECTS";
     }
+    else if(selected == 'optionReviews'){
+      reviewsWrapper.stop();
+      reviewsWrapper.css({'display': 'block'})
+      reviewsWrapper.animate({'opacity': '1'}, {duration: 500, complete: function(){projectsWrapper.css({'display': 'block'})}});
+      document.title = "42turtle.com: REVIEWS";
+    }
   });
 
   $.ajax('api/getArticles.php', {
@@ -164,11 +172,14 @@ $(document).ready(function(){
         if(value['type'] == 'optionFeed'){
           container = contentContainer;
         }
-        else{
+        else if(value['type'] == 'optionProjects'){
           container = projectsContainer;
         }
+        else{
+          container = reviewsContainer
+        }
         container.append(new Article(value['theme'], value['headline'], value['body'], value['key'],
-         value['type'], value['date'], value['views']).build());
+         value['type'], value['date'], value['views'], value['image']).build());
       });
       $('#optionFeed').click();
       params = new URLSearchParams(window.location.search);
