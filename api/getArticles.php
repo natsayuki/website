@@ -26,6 +26,7 @@
       $rows = array();
       while($row = $results ->fetch_assoc()){
         array_push($rows, $row);
+        echo $row;
       }
       echo json_encode($rows);
     }
