@@ -19,7 +19,7 @@ $(document).ready(function(){
   let circles = [];
 
   class Article {
-    constructor(theme, headline, body, num, type, date, views, image){
+    constructor(theme, headline, body, num, type, date, views){
       this.theme = theme;
       this.headline = headline;
       this.body = body;
@@ -28,7 +28,6 @@ $(document).ready(function(){
       this.type = type;
       this.date = date;
       this.views = views;
-      this.image = image;
       this.link = location.protocol + '//' + location.host + location.pathname + '?a=' + this.num + '&p=' + this.type;
       for(let i=0; i<this.rippleColor.length; i++){
         let temp = (parseInt(this.rippleColor[i]) + 20);
@@ -47,7 +46,6 @@ $(document).ready(function(){
           <h1 align="center">`+this.headline+`</h1>
           <h1 class="date">` + this.date + `</h1>
           <h1 class="views">` + this.views + `</h1>
-          <img src="` + this.image + `" class="headlineImg" />
         </div>
         <div class="body">
           <center>
@@ -183,7 +181,7 @@ $(document).ready(function(){
           container = reviewsContainer
         }
         container.append(new Article(value['theme'], value['headline'], value['body'], value['key'],
-         value['type'], value['date'], value['views'], value['image']).build());
+         value['type'], value['date'], value['views']).build());
       });
       $('#optionFeed').click();
       params = new URLSearchParams(window.location.search);
