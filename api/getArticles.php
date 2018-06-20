@@ -5,6 +5,16 @@
   //   echo "uh oh";
   //   exit;
   // }
+  function utf8ize($d) {
+    if (is_array($d)) {
+        foreach ($d as $k => $v) {
+            $d[$k] = utf8ize($v);
+        }
+    } else if (is_string ($d)) {
+        return utf8_encode($d);
+    }
+    return $d;
+  }
   if(isset($_GET['type'])){
     $type = $_GET['type'];
   }
@@ -27,8 +37,7 @@
       while($row = $results ->fetch_assoc()){
         array_push($rows, $row);
       }
-      echo var_dump($rows);
-      echo json_encode($rows);
+      echo json_encode(utf8ize($rows));
     }
     if($conn->error){
       echo $conn->error;
