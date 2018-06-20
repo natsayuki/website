@@ -250,3 +250,14 @@ textarea{
   height: 2em;
   filter: brightness(0%);
 }
+.seal{
+  position: absolute;
+  top: 20vh;
+  left: 1rem;
+  width: 10vh;
+  height: 10vh;
+}
+.sealOfApproval{
+  background-image: url('images/sealofapproval.png');
+  background-size: 100%;
+}
