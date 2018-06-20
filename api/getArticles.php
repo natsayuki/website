@@ -35,7 +35,12 @@
     if($results->num_rows > 0){
       $rows = array();
       while($row = $results ->fetch_assoc()){
-        array_push($rows, $row);
+        if(is_string($row)){
+          array_push($rows, mb_convert_encoding($row, 'UTF-8', 'UTF-8'));
+        }
+        else{
+          array_push($rows, $row);
+        }
       }
       echo json_encode(utf8ize($rows));
     }
