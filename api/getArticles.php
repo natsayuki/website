@@ -29,6 +29,9 @@
       }
       echo json_encode($rows);
     }
+    if($conn->error){
+      echo $conn->error;
+    }
   }
   else if($type == 'views'){
     $num = $_POST['num'];
