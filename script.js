@@ -168,8 +168,7 @@ $(document).ready(function(){
     type: 'get',
     data: {type: 'new'},
     success: function(data){
-      data = data.replace(/"?/g, '');
-      data = data.replace(/\?"/g, '');
+      data = data.replace(/("\?)|(\?")/g, '');
       console.log(data);
       data = JSON.parse(data);
       $.each(data.reverse(), function(key, value){
