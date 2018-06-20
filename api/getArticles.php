@@ -5,13 +5,13 @@
   //   echo "uh oh";
   //   exit;
   // }
-  function utf8ize($d) {
+  function utf8Clean($d) {
     if (is_array($d)) {
         foreach ($d as $k => $v) {
             $d[$k] = utf8ize($v);
         }
     } else if (is_string ($d)) {
-        return utf8_encode($d);
+        return mb_convert_encoding($d, 'UTF-8', 'UTF-8');
     }
     return $d;
   }
@@ -35,14 +35,9 @@
     if($results->num_rows > 0){
       $rows = array();
       while($row = $results ->fetch_assoc()){
-        if(is_string($row)){
-          array_push($rows, mb_convert_encoding($row, 'UTF-8', 'UTF-8'));
-        }
-        else{
-          array_push($rows, $row);
-        }
+        array_push($rows, $row);
       }
-      echo json_encode(utf8ize($rows));
+      echo json_encode(utf8Clean($rows));
     }
     if($conn->error){
       echo $conn->error;
