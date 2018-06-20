@@ -168,7 +168,8 @@ $(document).ready(function(){
     type: 'get',
     data: {type: 'new'},
     success: function(data){
-      data = data.split('').join('');
+      data = data.split('"?').join('');
+      data = data.split('?"').join('');
       console.log(data);
       data = JSON.parse(data);
       $.each(data.reverse(), function(key, value){
