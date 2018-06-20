@@ -159,7 +159,7 @@ $(document).ready(function(){
     else if(selected == 'optionReviews'){
       reviewsWrapper.stop();
       reviewsWrapper.css({'display': 'block'})
-      reviewsWrapper.animate({'opacity': '1'}, {duration: 500, complete: function(){projectsWrapper.css({'display': 'block'})}});
+      reviewsWrapper.animate({'opacity': '1'}, {duration: 500, complete: function(){reviewsWrapper.css({'display': 'block'})}});
       document.title = "42turtle.com: REVIEWS";
     }
   });
