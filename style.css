@@ -5,9 +5,9 @@
   background-color: aqua;
   height: 15vh;
 }
-.navBarMobile{
+/* .navBarMobile{
   font-size: 120%;
-}
+} */
 body{
   /* background: url('images/full.gif'); */
   background-color: black;
@@ -232,9 +232,9 @@ textarea{
   bottom: 0px;
   right: 1rem;
 }
-.mediaMobile{
+/* .mediaMobile{
   width: 100% !important;
-}
+} */
 .views{
   position: absolute;
   top: 0px;
@@ -257,12 +257,32 @@ textarea{
   width: 15vh;
   height: 15vh;
 }
-.sealMobile{
+/* .sealMobile{
   top: 18vh !important;
   width: 10vh !important;
   height: 10vh !important;
-}
+} */
 .sealOfApproval{
   background-image: url('images/sealofapproval.png');
   background-size: 100%;
+}
+@media (min-width: 800px){
+  .seal{
+    position: absolute;
+    top: 18vh;
+    left: 1rem;
+    width: 10vh;
+    height: 10vh;
+  }
+  img, iframe{
+    width: 100%;
+  }
+  #navBar{
+    position: relative;
+    width: 98%;
+    margin: 1%;
+    background-color: aqua;
+    height: 15vh;
+    font-size: 120%;
+  }
 }
