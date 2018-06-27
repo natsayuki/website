@@ -55,11 +55,11 @@ body{
   overflow: hidden;
   margin-bottom: 2rem;
 }
-.articleMobile{
+/* .articleMobile{
   width: 100% !important;
   font-size: 200%;
   margin-left: 0px;
-}
+} */
 .body > center > h1{
   margin: 1rem;
   padding: 1rem;
@@ -284,5 +284,14 @@ textarea{
     background-color: aqua;
     height: 15vh;
     font-size: 120%;
+  }
+  .article{
+    position: relative;
+    width: 100%;
+    margin-left: 0px;
+    height: 30vh;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    font-size: 200%;
   }
 }
