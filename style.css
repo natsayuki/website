@@ -266,7 +266,7 @@ textarea{
   background-image: url('images/sealofapproval.png');
   background-size: 100%;
 }
-@media (min-width: 800px){
+@media (max-width: 800px){
   .seal{
     position: absolute;
     top: 18vh;
